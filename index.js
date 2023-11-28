@@ -21,4 +21,28 @@ class Logo{
     
 }
 
+const choices = [
+    {
+        type: "input",
+        name: "text",
+        message: "TEXT: Enter 3 characters",
+    },
+    {
+        type: "input",
+        name: "text-color",
+        message: "TEXT COLOR: Enter a color name:",
+    },
+    {
+        type: "input",
+        name: "shape",
+        message: "SHAPE COLOR: Enter a color name:",
+    },
+    {
+        type: "list",
+        name: "pixel-image",
+        message: "Choose which image you would like?",
+        choices: ["Circle", "Square", "Triangle"],
+    },
+];
+
 
