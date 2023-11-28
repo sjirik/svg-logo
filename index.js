@@ -45,4 +45,36 @@ const choices = [
     },
 ];
 
+function writeToFile(fileName, data) {
+	console.log("Writing [" + data + "] to file [" + fileName + "]")
+    filesystem.writeFile(fileName, data, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Congratulations, you have Generated a logo.svg!");
+    });
+}
+
+async function init() {
+    console.log("Starting init");
+	var svgString = "";
+	var svg_file = "circle.svg";
+
+    const responses = await inquirer.prompt(choices);
+
+	var text_response = "";
+	if (responses.text.length > 0 && responses.text.length < 4) {
+		text_response = responses.text;
+	} else {
+		console.log("Invalid! Please enter ONLY 1-3 Characters");
+        return;
+	}
+	console.log("User response: [" + text_response + "]");
+	font_color_response = responses["text-color"];
+	console.log("User response: [" + font_color_response + "]");
+	shape_color_response = responses.shape;
+	console.log("User response: [" + shape_color_response + "]");
+	shape_type_response = responses["pixel-image"];
+	console.log("User response: [" + shape_type_response + "]");
+	
 
