@@ -1,6 +1,5 @@
 const filesystem = require('fs')
 const inquirer = require("inquirer");
-const svg = require("svg.js")
 const {Circle, Square, Triangle} = require("./lib/shape");
 
 class Logo{
@@ -10,7 +9,7 @@ class Logo{
     }
     render(){
 
-        return `<svg version="1.1" xmlns=${svg} width="300" height="200">${this.shapeChoice}${this.textChoice}</svg>`
+        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.shapeChoice}${this.textChoice}</svg>`
     }
     setTextElement(text,color){
         this.textChoice = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${color}">${text}</text>`
