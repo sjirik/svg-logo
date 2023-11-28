@@ -1,6 +1,7 @@
 const filesystem = require('fs')
 const inquirer = require("inquirer");
-const {Circle, Square, Triangle} = require("./lib/shapes");
+const svg = require("svg.js")
+const {Circle, Square, Triangle} = require("./lib/shape");
 
 class Logo{
     constructor(){
@@ -9,7 +10,7 @@ class Logo{
     }
     render(){
 
-        return `<svg version="1.1" xmlns="https://www.w3.org/TR/SVG2" width="300" height="200">${this.shapeChoice}${this.textChoice}</svg>`
+        return `<svg version="1.1" xmlns=${svg} width="300" height="200">${this.shapeChoice}${this.textChoice}</svg>`
     }
     setTextElement(text,color){
         this.textChoice = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${color}">${text}</text>`
@@ -51,14 +52,14 @@ function writeToFile(fileName, data) {
         if (err) {
             return console.log(err);
         }
-        console.log("Congratulations, you have Generated a logo.svg!");
+        console.log("Congratulations, you have created your logo.svg!");
     });
 }
 
 async function init() {
     console.log("Starting init");
 	var svgString = "";
-	var svg_file = "circle.svg";
+	var svg_file = "logo.svg";
 
     const responses = await inquirer.prompt(choices);
 
