@@ -95,3 +95,15 @@ async function init() {
 	}
 	shape_response.setColor(shape_color_response);
 
+	var svg = new Logo();
+	svg.setTextElement(text_response, font_color_response);
+	svg.setShapeElement(shape_response);
+	svgString = svg.render();
+	
+	console.log("Displaying shape:\n\n" + svgString);
+
+	console.log("Shape generation complete!");
+	console.log("Writing shape to file...");
+	writeToFile(svg_file, svgString); 
+}
+init()
