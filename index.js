@@ -77,4 +77,21 @@ async function init() {
 	shape_type_response = responses["pixel-image"];
 	console.log("User response: [" + shape_type_response + "]");
 	
+	let shape_response;
+	if (shape_type_response === "Square" || shape_type_response === "square") {
+		shape_response = new Square();
+		console.log("User selected Square shape");
+	}
+	else if (shape_type_response === "Circle" || shape_type_response === "circle") {
+		shape_response = new Circle();
+		console.log("User selected Circle shape");
+	}
+	else if (shape_type_response === "Triangle" || shape_type_response === "triangle") {
+		shape_response = new Triangle();
+		console.log("User selected Triangle shape");
+	}
+	else {
+		console.log("Invalid shape!");
+	}
+	shape_response.setColor(shape_color_response);
 
